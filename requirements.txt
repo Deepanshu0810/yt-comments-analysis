@@ -1,0 +1,5 @@
+# python 3.10.0
+ipykernel
+pandas
+numpy
+tensorflow-directml-plugin
