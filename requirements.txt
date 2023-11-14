@@ -3,4 +3,7 @@ ipykernel
 pandas
 numpy
 tensorflow-directml-plugin
-streamlit
+streamlit==1.13.0
+flask
+google-api-python-client
+python-dotenv
