@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet", href="{{url_for('static',filename='style.css')}}">
+    <title>Youtube Comments Analyzer</title>
+</head>
+<body>
+    <div class="start-sec">
+        <h1 id="header">Youtube Comments Analyzer</h1>
+        <form action="/" method="post">
+            <input type="text" name="video_url" placeholder="Youtube URL">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    {% if summary %}
+    <div>
+        <p>{{summary}}</p>
+    </div>
+    {% endif %}
+    {% if comments %}
+    {% endif %}
+
+    <footer>
+        <p>Created by <a href="https://github.com/Deepanshu0810">Deepanshu Anand</a></p>
+    </footer>
+    <script src="{{url_for('static',filename='index.js')}}"></script>
+</body>
+</html>

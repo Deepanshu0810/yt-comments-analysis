@@ -24,18 +24,26 @@ def get_video_data(video_id):
 
     return {'comments': comments, 'sentiments': prediction, 'summary': summary}
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/')
 def home():
+    return render_template("home.html")
+
+@views.route('/analysis', methods=['GET', 'POST'])
+def analyze():
     summary = None
     comments = []
     if request.method == 'POST':
         video_url = request.form.get('video_url')
         if video_url == '':
-            return render_template("index.html",summary=summary,comments=comments)
+            return render_template("analysis.html",summary=summary,comments=comments)
         video_id = video_url.split("=")[1]
         print(video_id)
         data = get_video_data(video_id)
         comments = list(zip(data['comments'], data['sentiments']))
         summary = data['summary']
         print(summary)
-    return render_template("index.html",summary=summary,comments=comments)
+    return render_template("analysis.html",summary=summary,comments=comments)
+
+@views.route('/summary', methods=['GET', 'POST'])
+def summary():
+    return render_template("base.html")
